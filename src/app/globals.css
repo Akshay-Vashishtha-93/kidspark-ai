@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Primary - Soft Teal: Trust, calm, safety, growth */
+  --color-primary-50: #E8F8F5;
+  --color-primary-100: #C5F0E9;
+  --color-primary-200: #8DE4D6;
+  --color-primary-300: #55D6C2;
+  --color-primary-400: #2EC4B6;
+  --color-primary-500: #22A699;
+  --color-primary-600: #1A8F85;
+  --color-primary-700: #0B7A6F;
+  --color-primary-800: #075E55;
+  --color-primary-900: #04403A;
+
+  /* Amber - Joy, curiosity, warmth */
+  --color-amber-50: #FFF8E8;
+  --color-amber-100: #FFEFC5;
+  --color-amber-200: #FFE08A;
+  --color-amber-300: #FFD050;
+  --color-amber-400: #FFB547;
+  --color-amber-500: #F59E0B;
+  --color-amber-600: #D97706;
+
+  /* Coral - Friendliness, alerts (softened) */
+  --color-coral-50: #FFF0F0;
+  --color-coral-100: #FFD6D6;
+  --color-coral-200: #FFB3B3;
+  --color-coral-300: #FF8A8A;
+  --color-coral-400: #FF6B6B;
+  --color-coral-500: #E84C4C;
+
+  /* Sage - Growth, success, achievement */
+  --color-sage-50: #EEFAEF;
+  --color-sage-100: #D0F0D2;
+  --color-sage-200: #A8E4AC;
+  --color-sage-300: #7BC67E;
+  --color-sage-400: #5CB85F;
+  --color-sage-500: #449D47;
+
+  /* Neutrals - Warm, not clinical */
+  --color-cream: #FFFBF5;
+  --color-cream-dark: #FFF5E8;
+  --color-charcoal: #2D3436;
+  --color-charcoal-light: #636E72;
+  --color-charcoal-lighter: #B2BEC3;
+  --color-border: #E8E2D9;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Scrollbar styling - softer for children */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-dark);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-200);
+  border-radius: 9999px;
+}
+
+/* Focus ring - amber for high visibility / accessibility */
+*:focus-visible {
+  outline: 3px solid var(--color-amber-400);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
 }
